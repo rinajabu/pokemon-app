@@ -47,3 +47,7 @@ h1 {
     width: 90%;
     justify-content: space-around;
 }
+
+img {
+    width: 250px;
+}
