@@ -197,8 +197,12 @@ $(() => {
             (data) => {
                 // console.log(data);
 
-                const currentTemp = Math.floor(data.main.temp);
+                // creating variable to store weather data
+                const currentTemp = Math.round(data.main.temp);
                 const weatherDescription = data.weather[0].description;
+                const highTemp = Math.round(data.main.temp_max);
+                const lowTemp = Math.round(data.main.temp_min);
+                const windSpeed = Math.round(data.wind.speed);
 
                 // creating modal div, modal textbox, and close button
                 const $modalDiv = $('<div>')
@@ -209,11 +213,11 @@ $(() => {
 
                 const $modalH1 = $('<h1>')
                     .addClass('modal-h1')
-                    .text('Here is the current weather for your Pokémon adventure!');
+                    .text("It's important to know what mother nature has in store for your adventure too! So here is the weather forecast for your Pokémon adventure!");
 
                 const $modalP = $('<p>')
                     .addClass('modal-p')
-                    .text(`The current temperature is ${currentTemp} degrees F with ${weatherDescription}!`);
+                    .text(`The current temperature is ${currentTemp} degrees with ${weatherDescription}. The high today will be ${highTemp} and the low ${lowTemp}. Wind speed is currently ${windSpeed}mph. Adventure on trainer!`);
 
                 const $modalCloseBtn = $('<button>')
                     .addClass('modal-close-btn')
@@ -226,6 +230,10 @@ $(() => {
                 $modalDiv.append($modalTextbox);
                 $('.container').append($modalDiv);
 
+                // close button event listener to remove it when clicked
+                $modalCloseBtn.on('click', () => {
+                    $modalDiv.remove();
+                })
 
             },
             () => {
