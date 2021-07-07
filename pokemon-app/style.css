@@ -48,6 +48,7 @@ h1, h3 {
     flex-wrap: wrap;
     width: 90%;
     justify-content: space-evenly;
+    margin: 0 auto;
 }
 
 img {
@@ -59,10 +60,15 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    width: 30%;
 }
 
 .move-list {
     cursor: pointer;
+}
+
+.move-ul {
+    display: none;
 }
 
 

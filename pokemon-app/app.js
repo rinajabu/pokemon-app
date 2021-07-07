@@ -121,10 +121,15 @@ $(() => {
                 // move list //
                 // looping through to get every move available to each pokemon
                 const $moveList = $('.move-list')
-                    .text('Moves List');
+                    .text('Moves List (click to expand)');
                 const $movesUl = $('<ul>')
                     .addClass('move-ul');
                 $moveList.append($movesUl);
+
+                // make the move list expand and hide by toggling move-ul class in css
+                $moveList.on('click', () => {
+                    $movesUl.toggleClass('move-ul');
+                })
 
                 for (let i = 0; i < data.moves.length; i++) {
                     // console.log(data.moves[i].move.name);
@@ -140,6 +145,8 @@ $(() => {
                 const $typeUl = $('<ul>')
                     .addClass('type-ul');
                 $typeDiv.append($typeUl);
+
+
                 for (let i = 0; i < data.types.length; i++) {
                     // console.log(data.types[i].type.name);
                     const $typeLi = $('<li>')
