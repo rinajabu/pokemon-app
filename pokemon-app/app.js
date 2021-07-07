@@ -181,7 +181,7 @@ $(() => {
 
     // weather click event //
     // Math.floor(data.main.temp) = current temp in F
-    // data.name = city name
+    // data.name = city name (always set to Old Bridge, NJ)
     // data.weather[0].description = weather description; clear skies, raining, etc.
 
     // weather modal event listener
@@ -190,11 +190,37 @@ $(() => {
         event.preventDefault();
 
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/weather?zip=08857,us&units=imperial&appid=a7f687658a33baa04934ad5d4aecb3d1",
+            // API weather request for US 08857 zip code and imperial units of measurement
+            url: `http://api.openweathermap.org/data/2.5/weather?zip=08857,us&units=imperial&appid=a7f687658a33baa04934ad5d4aecb3d1`,
             type: "GET",
         }).then(
             (data) => {
-                console.log(data.weather[0].description);
+                // console.log(data);
+
+                const currentTemp = Math.floor(data.main.temp);
+                const weatherDescription = data.weather[0].description;
+
+                // creating modal div and modal textbox
+                const $modalDiv = $('<div>')
+                    .addClass('modal');
+
+                const $modalTextbox = $('<div>')
+                    .addClass('modal-textbox');
+
+                const $modalH1 = $('<h1>')
+                    .addClass('modal-h1')
+                    .text('Here is the current weather for your Pokémon adventure!');
+
+                const $modalP = $('<p>')
+                    .addClass('modal-p')
+                    .text(`The current temperature is ${currentTemp} degrees F with ${weatherDescription}!`);
+
+                $modalTextbox.append($modalH1);
+                $modalTextbox.append($modalP);
+                $modalDiv.append($modalTextbox);
+                $('.container').append($modalDiv);
+
+
             },
             () => {
                 console.log("bad request");

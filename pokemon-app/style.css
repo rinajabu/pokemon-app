@@ -145,6 +145,19 @@ img {
     display: block;
 }
 
+/*////////////// MODAL SECTION /////////////////*/
+
+.modal-h1 {
+    font-size: 1.5em;
+}
+
+.modal-p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/*/////////////// MEDIA QUERIES ///////////////*/
+
 @media (max-width: 725px) {
 
     .stats {
