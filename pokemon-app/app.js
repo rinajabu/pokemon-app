@@ -167,10 +167,6 @@ $(() => {
                     console.log('clicked');
                 }
 
-
-
-
-
             }, // end of first promise parameter
             () => {
                 // what happens if user enters input that isn't in API
@@ -181,17 +177,40 @@ $(() => {
             }
         )
 
-
-
-
-
-
-
-
-
-
-
     }) // pokemon submit button event listener closing
+
+    // weather click event //
+    // Math.floor(data.main.temp) = current temp in F
+    // data.name = city name
+    // data.weather[0].description = weather description; clear skies, raining, etc.
+
+    // weather modal event listener
+    $('.weather-modal').on('click', (event) => {
+
+        event.preventDefault();
+
+        $.ajax({
+            url: "http://api.openweathermap.org/data/2.5/weather?zip=08857,us&units=imperial&appid=a7f687658a33baa04934ad5d4aecb3d1",
+            type: "GET",
+        }).then(
+            (data) => {
+                console.log(data.weather[0].description);
+            },
+            () => {
+                console.log("bad request");
+            }
+        )
+
+
+
+
+
+
+
+
+    }) // weather modal event listener closing
+
+
 
 
 
