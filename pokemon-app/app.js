@@ -41,13 +41,40 @@ $(() => {
                 $('.name-imgs').append($nameIdH3);
 
                 // creating the img carousel portion of the page //
+
+                const $imgCarouselContainer = $('<div>')
+                    .addClass('carousel-container');
+                $('.name-imgs').append($imgCarouselContainer);
+
+                const $backBtn = $('<div>')
+                    .addClass('back-btn')
+                    .text('<');
+                $imgCarouselContainer.append($backBtn);
+
                 const $divImgs = $('<div>')
                     .addClass('img-carousel');
-                $('.name-imgs').append($divImgs);
+                $imgCarouselContainer.append($divImgs);
 
-                const $imgs = $('<img>')
+                const $imgs1 = $('<img>')
                     .attr({ 'src': data.sprites.front_default, 'alt': `Picture of ${data.name}` });
-                $('.img-carousel').append($imgs);
+                $('.img-carousel').append($imgs1);
+
+                const $imgs2 = $('<img>')
+                    .attr({ 'src': data.sprites.back_default, 'alt': `Picture of ${data.name}` });
+                $('.img-carousel').append($imgs2);
+
+                const $imgs3 = $('<img>')
+                    .attr({ 'src': data.sprites.front_shiny, 'alt': `Picture of ${data.name}` });
+                $('.img-carousel').append($imgs3);
+
+                const $imgs4 = $('<img>')
+                    .attr({ 'src': data.sprites.back_shiny, 'alt': `Picture of ${data.name}` });
+                $('.img-carousel').append($imgs4);
+
+                const $forwardBtn = $('<div>')
+                    .addClass('forward-btn')
+                    .text('>');
+                $imgCarouselContainer.append($forwardBtn);
 
                 // creating the stats section //
                 // height and weight

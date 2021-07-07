@@ -1,3 +1,5 @@
+/*////////////////// GENRAL LAYOUT ///////////////*/
+
 body {
     background-color: beige;
     font-family: 'Montserrat', sans-serif;
@@ -28,7 +30,7 @@ a {
     color: black;
 }
 
-h1 {
+h1, h3 {
     text-align: center;
 }
 
@@ -61,4 +63,30 @@ img {
 
 .move-list {
     cursor: pointer;
+}
+
+
+/*//////////// IMG CAROUSEL SECTION //////////////*/
+
+.back-btn, .forward-btn {
+    background: white;
+    width: 1em;
+    text-align: center;
+    font-size: 1.3em;
+    cursor: pointer;
+    height: 3vh;
+    margin-top: 5em;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.img-carousel img {
+    display: none;
+}
+
+.img-carousel img:first-of-type {
+    display: block;
 }
