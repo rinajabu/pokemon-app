@@ -25,6 +25,8 @@ $(() => {
         let $grabPokemon = $('.input-value').val();
         const $container = $('.container');
 
+        $('.stats').removeClass('hide');
+
         // ajax query by pokemon name or ID#
         $.ajax({
             url: `https://pokeapi.co/api/v2/pokemon/${$grabPokemon}`,
@@ -105,9 +107,9 @@ $(() => {
                 // creating the stats section //
                 // height and weight
                 $('.height')
-                    .text(`Height: ${data.height}`);
+                    .text(`height: ${data.height}`);
                 $('.weight')
-                    .text(`Weight: ${data.weight}`);
+                    .text(`weight: ${data.weight}`);
 
                 // stat name and number // 
                 // looping through to get each stat name and number
@@ -121,7 +123,7 @@ $(() => {
                 // move list //
                 // looping through to get every move available to each pokemon
                 const $moveList = $('.move-list')
-                    .text('Moves List (click to expand)');
+                    .text('moves list (click to expand)');
                 const $movesUl = $('<ul>')
                     .addClass('move-ul');
                 $moveList.append($movesUl);
@@ -141,7 +143,7 @@ $(() => {
                 // type list //
                 // looping through to get all the pokemon types
                 const $typeDiv = $('.type')
-                    .text(`Type/Types`);
+                    .text(`type/types`);
                 const $typeUl = $('<ul>')
                     .addClass('type-ul');
                 $typeDiv.append($typeUl);
