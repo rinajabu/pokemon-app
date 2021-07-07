@@ -16,7 +16,7 @@ nav {
     width: 100%;
 }
 
-ul {
+.nav-ul {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
@@ -45,9 +45,20 @@ h1 {
     flex-direction: row;
     flex-wrap: wrap;
     width: 90%;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 img {
     width: 250px;
+}
+
+.stats {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.move-list {
+    cursor: pointer;
 }

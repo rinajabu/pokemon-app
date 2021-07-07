@@ -17,7 +17,9 @@ $(() => {
 
         event.preventDefault();
 
+        // resetting the page after each search
         $('.name-imgs').children().remove();
+        $('.stat-numbers').children().remove();
 
         // grabbing value from input box
         let $grabPokemon = $('.input-value').val();
@@ -29,15 +31,16 @@ $(() => {
             type: "GET",
         }).then(
             (data) => {
-                // console.log(data);
+                // console.log(data.types[0].type.name);
+                // console.log(data.moves.length);
 
-                // creating the name/ID# portion of page
+                // creating the name / ID# portion of page //
                 const $nameIdH3 = $('<h3>')
                     .addClass('name')
                     .text(`Name: "${data.name}" || ID#: ${data.id}`);
                 $('.name-imgs').append($nameIdH3);
 
-                // creating the img carousel portion of the page
+                // creating the img carousel portion of the page //
                 const $divImgs = $('<div>')
                     .addClass('img-carousel');
                 $('.name-imgs').append($divImgs);
@@ -46,7 +49,51 @@ $(() => {
                     .attr({ 'src': data.sprites.front_default, 'alt': `Picture of ${data.name}` });
                 $('.img-carousel').append($imgs);
 
-                // creating the stats section
+                // creating the stats section //
+                // height and weight
+                $('.height')
+                    .text(`Height: ${data.height}`);
+                $('.weight')
+                    .text(`Weight: ${data.weight}`);
+
+                // stat name and number // 
+                // looping through to get each stat name and number
+                for (let i = 0; i < data.stats.length; i++) {
+                    // console.log(data.stats[i].stat.name, data.stats[i].base_stat);
+                    const $statDivs = $('<div>')
+                        .text(`${data.stats[i].stat.name}: ${data.stats[i].base_stat}`);
+                    $('.stat-numbers').append($statDivs);
+                }
+
+                // move list //
+                // looping through to get every move available to each pokemon
+                const $moveList = $('.move-list')
+                    .text('Moves List');
+                const $movesUl = $('<ul>')
+                    .addClass('move-ul');
+                $moveList.append($movesUl);
+
+                for (let i = 0; i < data.moves.length; i++) {
+                    // console.log(data.moves[i].move.name);
+                    const $movesListLi = $('<li>')
+                        .text(`${data.moves[i].move.name}`);
+                    $movesUl.append($movesListLi);
+                }
+
+                // type list //
+                // looping through to get all the pokemon types
+                const $typeDiv = $('.type')
+                    .text(`Type/Types`);
+                const $typeUl = $('<ul>')
+                    .addClass('type-ul');
+                $typeDiv.append($typeUl);
+                for (let i = 0; i < data.types.length; i++) {
+                    // console.log(data.types[i].type.name);
+                    const $typeLi = $('<li>')
+                        .text(data.types[i].type.name);
+                    $typeUl.append($typeLi);
+                }
+
 
             },
             () => {
