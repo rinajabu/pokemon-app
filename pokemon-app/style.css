@@ -14,9 +14,9 @@ body {
 
 nav {
     margin: 1em auto;
-    background: white;
+    background: lightcoral;
     width: 100%;
-    border: 3px solid lightblue;
+    border: 3px solid lightslategray;
     border-radius: 5px;
 }
 
@@ -55,7 +55,7 @@ h1, h3 {
 .input-value {
     text-align: center;
     width: 250px;
-    border: 3px solid lightblue;
+    border: 3px solid lightslategray;
     font-size: 1.5em;
     border-radius: 5px;
     /* margin-bottom: 1em; */
@@ -67,7 +67,7 @@ h1, h3 {
     width: 95px;
     text-align: center;
     background: lightcoral;
-    border: 3px solid lightblue;
+    border: 3px solid lightslategray;
     border-radius: 5px;
     /* margin-bottom: 1em; */
 }
@@ -113,17 +113,23 @@ img {
     display: none;
 }
 
+.type-ul {
+    margin-top: .4em;
+}
+
 
 /*//////////// IMG CAROUSEL SECTION //////////////*/
 
 .back-btn, .forward-btn {
-    background: white;
+    background: lightcoral;
     width: 1em;
     text-align: center;
     font-size: 1.3em;
     cursor: pointer;
     height: 3vh;
     margin-top: 5em;
+    border: solid 3px lightslategray;
+    border-radius: 5px;
 }
 
 .carousel-container {
@@ -139,7 +145,7 @@ img {
     display: block;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 725px) {
 
     .stats {
         width: 50%;
