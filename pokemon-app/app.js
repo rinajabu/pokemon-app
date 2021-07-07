@@ -41,7 +41,6 @@ $(() => {
                 $('.name-imgs').append($nameIdH3);
 
                 // creating the img carousel portion of the page //
-
                 const $imgCarouselContainer = $('<div>')
                     .addClass('carousel-container');
                 $('.name-imgs').append($imgCarouselContainer);
@@ -75,6 +74,33 @@ $(() => {
                     .addClass('forward-btn')
                     .text('>');
                 $imgCarouselContainer.append($forwardBtn);
+
+                // creating the carousel section with forward and back buttons
+                let currentImgIndex = 0;
+                let numOfImages = $('.img-carousel').children().length - 1;
+                const $carouselImgs = $('.img-carousel').children();
+
+                // forward button event listener
+                $forwardBtn.on('click', () => {
+                    $carouselImgs.eq(currentImgIndex).css('display', 'none');
+                    if (currentImgIndex < numOfImages) {
+                        currentImgIndex++;
+                    } else {
+                        currentImgIndex = 0
+                    }
+                    $carouselImgs.eq(currentImgIndex).css('display', 'block');
+                });
+
+                // back button event listener
+                $backBtn.on('click', () => {
+                    $carouselImgs.eq(currentImgIndex).css('display', 'none');
+                    if (currentImgIndex > 0) {
+                        currentImgIndex--
+                    } else {
+                        currentImgIndex = numOfImages;
+                    }
+                    $carouselImgs.eq(currentImgIndex).css('display', 'block');
+                })
 
                 // creating the stats section //
                 // height and weight
