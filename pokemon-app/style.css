@@ -147,6 +147,28 @@ img {
 
 /*////////////// MODAL SECTION /////////////////*/
 
+.modal {
+	background-color: rgba(0, 0, 0, .4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+}
+
+.modal-textbox {
+	background-color: #fff;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+	padding: 2%;
+	line-height: 120%;
+}
+
 .modal-h1 {
     font-size: 1.5em;
 }
@@ -154,6 +176,10 @@ img {
 .modal-p {
     text-align: center;
     font-size: 1.2em;
+}
+
+.modal-close-btn {
+    cursor: pointer;
 }
 
 /*/////////////// MEDIA QUERIES ///////////////*/

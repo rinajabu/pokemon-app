@@ -200,7 +200,7 @@ $(() => {
                 const currentTemp = Math.floor(data.main.temp);
                 const weatherDescription = data.weather[0].description;
 
-                // creating modal div and modal textbox
+                // creating modal div, modal textbox, and close button
                 const $modalDiv = $('<div>')
                     .addClass('modal');
 
@@ -215,8 +215,14 @@ $(() => {
                     .addClass('modal-p')
                     .text(`The current temperature is ${currentTemp} degrees F with ${weatherDescription}!`);
 
+                const $modalCloseBtn = $('<button>')
+                    .addClass('modal-close-btn')
+                    .attr('id', 'close-btn')
+                    .text('CLOSE');
+
                 $modalTextbox.append($modalH1);
                 $modalTextbox.append($modalP);
+                $modalTextbox.append($modalCloseBtn);
                 $modalDiv.append($modalTextbox);
                 $('.container').append($modalDiv);
 
