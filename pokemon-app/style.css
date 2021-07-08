@@ -193,7 +193,37 @@ img {
 
 /*/////////////// MEDIA QUERIES ///////////////*/
 
-@media (max-width: 535px) {
+@media (max-width: 740px) {
+
+    .info {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+}
+
+@media (max-width: 645px) {
+
+    .info {
+        width: 90%;
+        justify-content: space-evenly;
+    }
+
+    .stats {
+        width: 65%;
+    }
+
+    .modal-textbox {
+        width: 25em;
+    }
+    
+    .modal-close-btn {
+        margin: 0 0 1em 12em;
+    }
+    
+}
+
+@media (max-width: 536px) {
 
     nav {
         width: 98%;
@@ -204,18 +234,23 @@ img {
         justify-content: space-between;
     }
 
+    .info {
+        width: 90%;
+        justify-content: space-evenly;
+    }
+
     .stats {
         width: 75%;
     }
 
     .modal-textbox {
-        height: 55vh;
+        height: 50vh;
         width: 75%;
     }
     
     .modal-close-btn {
         width: 25%;
-        margin: 0 0 1em 9.5em;
+        margin: 0 0 1em 10em;
     }
     
 }
