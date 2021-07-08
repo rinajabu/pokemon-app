@@ -197,7 +197,7 @@ $(() => {
 
         const $gameModalP = $('<p>')
             .addClass('game-modal-p')
-            .text(`Simulate a Pokémon battle with two randomly generated Pokémon! (only the original 150 Pokémon)`);
+            .text(`Make a Pokémon battle story with two randomly generated Pokémon! (only the original 150 Pokémon)`);
 
         const $gameBattleDiv = $('<div>')
             .addClass('game-battle-div');
@@ -374,18 +374,21 @@ $(() => {
 
             // show starting hp for both opponents
             const status = () => {
-                console.log(`1st pokemon health: ${$pokemon1Hp}`);
-                console.log(`2nd pokemon health: ${$pokemon2Hp}`);
+                alert(`1st pokemon health: ${$pokemon1Hp}\n2nd pokemon health: ${$pokemon2Hp}`);
             }
 
             // check win to see if any pokemon's health goes below 0
             const checkWin = () => {
-                if ($pokemon1Hp <= 0) {
-                    console.log('2nd Pokémon has won! Exit game and click Mini Pokemon Game to play again!');
+                if ($pokemon1Hp <= 0 && $pokemon2Hp <= 0) {
+                    alert(`It's a tie! Both Pokémon fell in battle! Click Mini Pokemon Game to play again! Thanks for playing!`)
+                    location.reload();
                 } else if ($pokemon2Hp <= 0) {
-                    console.log('1st Pokémon has won! Exit game and click Mini Pokemon Game to play again!');
+                    alert('1st Pokémon has won! Click Mini Pokemon Game to play again! Thanks for playing!');
+                    location.reload();
+                } else if ($pokemon1Hp <= 0) {
+                    alert('2nd Pokémon has won! Click Mini Pokemon Game to play again! Thanks for playing!');
+                    location.reload();
                 } else {
-                    status();
                     battle();
                 }
             }
@@ -394,20 +397,21 @@ $(() => {
             const battle = () => {
                 // pokemon1 always hits first, then pokemon2 hits after; then check if anyone wins. if they are both still alive, then run the battle function again
                 $pokemon2Hp -= $pokemon1Attack;
+                alert(`1st Pokémon hits 2nd Pokémon for ${$pokemon1Attack} damage!`);
+                // pokemon2 attack
                 $pokemon1Hp -= $pokemon2Attack;
+                alert(`2nd Pokémon hits 1st Pokémon for ${$pokemon2Attack} damage!`);
+                status();
                 checkWin();
             }
 
             // conditional statement if two opponents have been generated
             if ($('.pokemon-1-div').children().length > 1 && $('.pokemon-2-div').children().length > 1) {
+                alert(`Click through the alerts to see the battle events unfold!`);
                 battle();
-
-
-
-
                 // conditional statement if two opponents have not yet been generated
             } else {
-                console.log('please generate 2 opponents');
+                alert('please generate 2 opponents first to battle');
             }
         })
 
