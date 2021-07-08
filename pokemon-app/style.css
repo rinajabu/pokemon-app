@@ -272,11 +272,54 @@ img {
 
 /*/////////////// MEDIA QUERIES ///////////////*/
 
+@media (max-width: 840px) {
+
+    .game-modal-textbox {
+        height: 500px;
+        width: 630px;
+    }
+
+    .game-battle-div {
+        width: 610px;
+        height: 270px;
+    }
+
+    .pokemon-1-div img, .pokemon-2-div img {
+        width: 120px;
+        margin-left: 3.5em;
+    }
+
+    .game-modal-close-btn {
+        width: 4em;
+        margin: 0 0 0 22em;
+    }
+}
+
 @media (max-width: 740px) {
 
     .info {
         width: 100%;
         justify-content: space-between;
+    }
+
+    .game-modal-textbox {
+        height: 500px;
+        width: 530px;
+    }
+
+    .game-battle-div {
+        width: 510px;
+        height: 270px;
+    }
+
+    .pokemon-1-div img, .pokemon-2-div img {
+        width: 120px;
+        margin-left: 2.5em;
+    }
+
+    .game-modal-close-btn {
+        width: 4em;
+        margin: 0 0 0 18.5em;
     }
     
 }
@@ -298,6 +341,26 @@ img {
     
     .modal-close-btn {
         margin: 0 0 1em 12em;
+    }
+
+    .game-modal-textbox {
+        height: 500px;
+        width: 441px;
+    }
+
+    .game-battle-div {
+        width: 410px;
+        height: 270px;
+    }
+
+    .pokemon-1-div img, .pokemon-2-div img {
+        width: 120px;
+        margin-left: 1.5em;
+    }
+
+    .game-modal-close-btn {
+        width: 4em;
+        margin: 0 0 0 15em;
     }
     
 }
@@ -330,6 +393,26 @@ img {
     .modal-close-btn {
         width: 25%;
         margin: 0 0 1em 10em;
+    }
+
+    .game-modal-textbox {
+        height: 500px;
+        width: 365px;
+    }
+
+    .game-battle-div {
+        width: 350px;
+        height: 270px;
+    }
+
+    .pokemon-1-div img, .pokemon-2-div img {
+        width: 120px;
+        margin: 0;
+    }
+
+    .game-modal-close-btn {
+        width: 4em;
+        margin: 0 0 0 12em;
     }
     
 }
@@ -372,6 +455,26 @@ img {
     .modal-close-btn {
         width: 25%;
         margin: 0 0 1em 9.5em;
+    }
+
+    .game-modal-textbox {
+        height: 500px;
+        width: 320px;
+    }
+
+    .game-battle-div {
+        width: 320px;
+        height: 270px;
+    }
+
+    .pokemon-1-div img, .pokemon-2-div img {
+        width: 120px;
+        margin: 0;
+    }
+
+    .game-modal-close-btn {
+        width: 4em;
+        margin: 0 0 0 10em;
     }
 
 }
@@ -417,6 +520,26 @@ img {
     .modal-close-btn {
         width: 25%;
         margin: 0 0 1em 8em;
+    }
+
+    .game-modal-textbox {
+        height: 500px;
+        width: 320px;
+    }
+
+    .game-battle-div {
+        width: 320px;
+        height: 270px;
+    }
+
+    .pokemon-1-div img, .pokemon-2-div img {
+        width: 120px;
+        margin: 0;
+    }
+
+    .game-modal-close-btn {
+        width: 4em;
+        margin: 0 0 0 10em;
     }
     
 }
