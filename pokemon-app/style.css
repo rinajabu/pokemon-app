@@ -193,6 +193,33 @@ img {
 
 /*/////////////// MEDIA QUERIES ///////////////*/
 
+@media (max-width: 535px) {
+
+    nav {
+        width: 98%;
+    }
+
+    .nav-ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .stats {
+        width: 75%;
+    }
+
+    .modal-textbox {
+        height: 55vh;
+        width: 75%;
+    }
+    
+    .modal-close-btn {
+        width: 25%;
+        margin: 0 0 1em 9.5em;
+    }
+    
+}
+
 @media (max-width: 450px) {
 
     nav {
