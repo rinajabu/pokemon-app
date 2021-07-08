@@ -179,11 +179,12 @@ $(() => {
 
     }) // pokemon submit button event listener closing
 
-    // pokemon mini modal battle game //
 
+    // pokemon mini modal battle game //
     $('.game-modal').on('click', (event) => {
         // console.log('game clicked!');
 
+        // making the elements for modal game
         const $modalDiv = $('<div>')
             .addClass('modal');
 
@@ -196,19 +197,42 @@ $(() => {
 
         const $gameModalP = $('<p>')
             .addClass('game-modal-p')
-            .text(`Simulate a Pokémon battle with two randomly generated Pokémon!`);
+            .text(`Simulate a Pokémon battle with two randomly generated Pokémon! (only the original 150 Pokémon)`);
+
+        const $gameBattleDiv = $('<div>')
+            .addClass('game-battle-div');
+
+        const $pokemon1 = $('<div>')
+            .addClass('pokemon-1-div');
+
+        const $pokemon1Btn = $('<input>')
+            .addClass('game-btn-1')
+            .attr({ 'type': 'submit', 'value': 'generate 1st!' });
+
+        const $pokemon2 = $('<div>')
+            .addClass('pokemon-2-div');
+
+        const $pokemon2Btn = $('<input>')
+            .addClass('game-btn-2')
+            .attr({ 'type': 'submit', 'value': 'generate 2nd!' });
 
         const $gameModalCloseBtn = $('<button>')
             .addClass('game-modal-close-btn')
             .attr('id', 'close-btn')
-            .text('CLOSE');
+            .text('EXIT');
 
         $gameModalTextbox.append($gameModalH1);
         $gameModalTextbox.append($gameModalP);
+        $gameModalTextbox.append($gameBattleDiv);
+        $gameBattleDiv.append($pokemon1);
+        $gameBattleDiv.append($pokemon2);
+        $pokemon1.append($pokemon1Btn);
+        $pokemon2.append($pokemon2Btn);
         $gameModalTextbox.append($gameModalCloseBtn);
         $modalDiv.append($gameModalTextbox);
         $('.container').append($modalDiv);
 
+        // close button event listener
         $gameModalCloseBtn.on('click', () => {
             $modalDiv.remove();
         })

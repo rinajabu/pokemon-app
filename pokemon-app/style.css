@@ -58,7 +58,6 @@ h1, h3 {
     border: 3px solid lightslategray;
     font-size: 1.5em;
     border-radius: 5px;
-    /* margin-bottom: 1em; */
 }
 
 .btn {
@@ -69,7 +68,6 @@ h1, h3 {
     background: lightcoral;
     border: 3px solid lightslategray;
     border-radius: 5px;
-    /* margin-bottom: 1em; */
 }
 
 .info {
@@ -150,7 +148,7 @@ img {
 .game-modal-textbox {
 	display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     background-color: floralwhite;
     height: 550px;
     width: 800px;
@@ -160,9 +158,46 @@ img {
     padding: 1em;
 }
 
+.game-modal-h1 {
+    margin: 0;
+}
+
 .game-modal-p {
     text-align: center;
     margin: 0;
+}
+
+.game-battle-div {
+    background: antiquewhite;
+    border: solid 1px lightslategray;
+    border-radius: 5px;
+    width: 700px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.pokemon-1-div, .pokemon-2-div {
+    margin-top: 1em;
+}
+
+.game-btn-1, .game-btn-2 {
+    cursor: pointer;
+    height: 2em;
+    border: solid 3px lightslategrey;
+    border-radius: 5px;
+}
+
+.game-modal-close-btn {
+    cursor: pointer;
+    width: 10%;
+    height: 2.5em;
+    margin: 0 0 0 28em;
+    border: solid 3px lightslategrey;
+    border-radius: 5px;
 }
 
 /*////////////// WEATHER MODAL SECTION /////////////////*/
