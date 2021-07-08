@@ -239,8 +239,11 @@ $(() => {
 
         // generate the 1st random pokemon
         $pokemon1Btn.on('click', (event) => {
-            // console.log('clicked btn 1!');
+
             event.preventDefault();
+
+            // can only generate once per session
+            $(this).off(event);
 
             // clearing the results field after each generate click
             $('.battle-img1').remove();
@@ -249,7 +252,7 @@ $(() => {
             $('.battle-attack1').remove();
 
             // randomizing the first 150 pokemon
-            let $randomPokemon = Math.floor(Math.random() * 151);
+            let $randomPokemon = Math.ceil(Math.random() * 150);
 
             $.ajax({
                 url: `https://pokeapi.co/api/v2/pokemon/${$randomPokemon}`,
@@ -261,7 +264,7 @@ $(() => {
                     // const $img = data.sprites.front_default;
                     const $hpStat = (data.stats[0].base_stat * 2);
                     const $attackStat = data.stats[1].base_stat;
-                    console.log(data.name);
+                    // console.log(data.name);
                     // console.log($hpStat);
                     // console.log($attackStat);
 
@@ -274,13 +277,17 @@ $(() => {
                         .text(`Name: ${data.name}`);
                     $pokemon1.append($battleName);
 
+                    // storing hp num in attribute to grab for battle
                     const $battleHp = $('<p>')
                         .addClass('battle-hp1')
+                        .attr('hp1', $hpStat)
                         .text(`HP: ${$hpStat}`);
                     $pokemon1.append($battleHp);
 
+                    // storing attack num in attribute to grab for battle
                     const $battleAttack = $('<p>')
                         .addClass('battle-attack1')
+                        .attr('attack1', $attackStat)
                         .text(`Attack: ${$attackStat}`);
                     $pokemon1.append($battleAttack);
 
@@ -299,6 +306,9 @@ $(() => {
 
             event.preventDefault();
 
+            // can only generate once per session
+            $(this).off(event);
+
             // clearing the results field after each generate click
             $('.battle-img2').remove();
             $('.battle-name2').remove();
@@ -306,7 +316,7 @@ $(() => {
             $('.battle-attack2').remove();
 
             // randomizing the first 150 pokemon
-            let $randomPokemon = Math.floor(Math.random() * 151);
+            let $randomPokemon = Math.ceil(Math.random() * 150);
 
             $.ajax({
                 url: `https://pokeapi.co/api/v2/pokemon/${$randomPokemon}`,
@@ -331,13 +341,17 @@ $(() => {
                         .text(`Name: ${data.name}`);
                     $pokemon2.append($battleName);
 
+                    // storing hp num in attribute to grab for battle
                     const $battleHp = $('<p>')
                         .addClass('battle-hp2')
+                        .attr('hp2', $hpStat)
                         .text(`HP: ${$hpStat}`);
                     $pokemon2.append($battleHp);
 
+                    // storing attack num in attribute to grab for battle
                     const $battleAttack = $('<p>')
                         .addClass('battle-attack2')
+                        .attr('attack2', $attackStat)
                         .text(`Attack: ${$attackStat}`);
                     $pokemon2.append($battleAttack);
 
@@ -348,6 +362,56 @@ $(() => {
                 }
             )
         })
+
+        // battle button event listener
+        $('.battle-btn').on('click', (event) => {
+
+            // grabbing hp and attack attribute numbers from each opponent and storing them in variables
+            let $pokemon1Hp = $('.battle-hp1').attr('hp1');
+            let $pokemon1Attack = $('.battle-attack1').attr('attack1');
+            let $pokemon2Hp = $('.battle-hp2').attr('hp2');
+            let $pokemon2Attack = $('.battle-attack2').attr('attack2');
+
+            // show starting hp for both opponents
+            const status = () => {
+                console.log(`1st pokemon health: ${$pokemon1Hp}`);
+                console.log(`2nd pokemon health: ${$pokemon2Hp}`);
+            }
+
+            // check win to see if any pokemon's health goes below 0
+            const checkWin = () => {
+                if ($pokemon1Hp <= 0) {
+                    console.log('2nd Pokémon has won! Exit game and click Mini Pokemon Game to play again!');
+                } else if ($pokemon2Hp <= 0) {
+                    console.log('1st Pokémon has won! Exit game and click Mini Pokemon Game to play again!');
+                } else {
+                    status();
+                    battle();
+                }
+            }
+
+            // battle function
+            const battle = () => {
+                // pokemon1 always hits first, then pokemon2 hits after; then check if anyone wins. if they are both still alive, then run the battle function again
+                $pokemon2Hp -= $pokemon1Attack;
+                $pokemon1Hp -= $pokemon2Attack;
+                checkWin();
+            }
+
+            // conditional statement if two opponents have been generated
+            if ($('.pokemon-1-div').children().length > 1 && $('.pokemon-2-div').children().length > 1) {
+                battle();
+
+
+
+
+                // conditional statement if two opponents have not yet been generated
+            } else {
+                console.log('please generate 2 opponents');
+            }
+        })
+
+
 
         // close button event listener
         $gameModalCloseBtn.on('click', () => {
