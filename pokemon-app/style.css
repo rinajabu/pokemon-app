@@ -182,13 +182,36 @@ img {
 
 .pokemon-1-div, .pokemon-2-div {
     margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
 }
 
-.game-btn-1, .game-btn-2 {
+.pokemon-1-div img, .pokemon-2-div img {
+    width: 190px;
+    margin-left: 2.5em;
+}
+
+.pokemon-1-div p, .pokemon-2-div p {
+    text-align: center;
+}
+
+.battle-btn {
     cursor: pointer;
     height: 2em;
+    width: 6em;
     border: solid 3px lightslategrey;
     border-radius: 5px;
+    margin: 1em auto;
+}
+
+.game-btn-1, .game-btn-2{
+    cursor: pointer;
+    height: 2em;
+    width: 8em;
+    border: solid 3px lightslategrey;
+    border-radius: 5px;
+    margin: 0 auto;
 }
 
 .game-modal-close-btn {

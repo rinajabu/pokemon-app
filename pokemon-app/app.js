@@ -209,6 +209,10 @@ $(() => {
             .addClass('game-btn-1')
             .attr({ 'type': 'submit', 'value': 'generate 1st!' });
 
+        const $battleBtn = $('<input>')
+            .addClass('battle-btn')
+            .attr({ 'type': 'submit', 'value': 'battle!' });
+
         const $pokemon2 = $('<div>')
             .addClass('pokemon-2-div');
 
@@ -225,12 +229,113 @@ $(() => {
         $gameModalTextbox.append($gameModalP);
         $gameModalTextbox.append($gameBattleDiv);
         $gameBattleDiv.append($pokemon1);
+        $gameBattleDiv.append($battleBtn);
         $gameBattleDiv.append($pokemon2);
         $pokemon1.append($pokemon1Btn);
         $pokemon2.append($pokemon2Btn);
         $gameModalTextbox.append($gameModalCloseBtn);
         $modalDiv.append($gameModalTextbox);
         $('.container').append($modalDiv);
+
+        // generate the 1st random pokemon
+        $pokemon1Btn.on('click', (event) => {
+            // console.log('clicked btn 1!');
+            event.preventDefault();
+
+            // clearing the results field after each generate click
+            $('.battle-img1').remove();
+            $('.battle-hp1').remove();
+            $('.battle-attack1').remove();
+
+            // randomizing the first 150 pokemon
+            let $randomPokemon = Math.floor(Math.random() * 151);
+
+            $.ajax({
+                url: `https://pokeapi.co/api/v2/pokemon/${$randomPokemon}`,
+                type: "GET",
+            }).then(
+                (data) => {
+
+                    // storing battle data in variables
+                    // const $img = data.sprites.front_default;
+                    const $hpStat = data.stats[0].base_stat;
+                    const $attackStat = data.stats[1].base_stat;
+                    // console.log($img);
+                    // console.log($hpStat);
+                    // console.log($attackStat);
+
+                    const $battleImg = $('<img>')
+                        .attr({ 'src': data.sprites.front_default, 'alt': `Picture of ${data.name}`, 'class': 'battle-img1' });
+                    $pokemon1.append($battleImg);
+
+                    const $battleHp = $('<p>')
+                        .addClass('battle-hp1')
+                        .text(`HP: ${$hpStat}`);
+                    $pokemon1.append($battleHp);
+
+                    const $battleAttack = $('<p>')
+                        .addClass('battle-attack1')
+                        .text(`Attack: ${$attackStat}`);
+                    $pokemon1.append($battleAttack);
+
+
+                },
+                () => {
+                    console.log('game modal: bad request');
+                }
+            )
+
+        }) // pokemon1Btn event closing
+
+        // generate the 2nd random pokemon
+        $pokemon2Btn.on('click', (event) => {
+            // console.log('clicked btn 2!');
+
+            event.preventDefault();
+
+            // clearing the results field after each generate click
+            $('.battle-img2').remove();
+            $('.battle-hp2').remove();
+            $('.battle-attack2').remove();
+
+            // randomizing the first 150 pokemon
+            let $randomPokemon = Math.floor(Math.random() * 151);
+
+            $.ajax({
+                url: `https://pokeapi.co/api/v2/pokemon/${$randomPokemon}`,
+                type: "GET",
+            }).then(
+                (data) => {
+
+                    // storing battle data in variables
+                    // const $img = data.sprites.front_default;
+                    const $hpStat = data.stats[0].base_stat * 2;
+                    const $attackStat = data.stats[1].base_stat;
+                    // console.log($img);
+                    // console.log($hpStat);
+                    // console.log($attackStat);
+
+                    const $battleImg = $('<img>')
+                        .attr({ 'src': data.sprites.front_default, 'alt': `Picture of ${data.name}`, 'class': 'battle-img2' });
+                    $pokemon2.append($battleImg);
+
+                    const $battleHp = $('<p>')
+                        .addClass('battle-hp2')
+                        .text(`HP: ${$hpStat}`);
+                    $pokemon2.append($battleHp);
+
+                    const $battleAttack = $('<p>')
+                        .addClass('battle-attack2')
+                        .text(`Attack: ${$attackStat}`);
+                    $pokemon2.append($battleAttack);
+
+
+                },
+                () => {
+                    console.log('game modal: bad request');
+                }
+            )
+        })
 
         // close button event listener
         $gameModalCloseBtn.on('click', () => {
