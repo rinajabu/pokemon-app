@@ -145,7 +145,27 @@ img {
     display: block;
 }
 
-/*////////////// MODAL SECTION /////////////////*/
+/*/////////////// GAME MODAL SECTION //////////////////*/
+
+.game-modal-textbox {
+	display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    background-color: floralwhite;
+    height: 550px;
+    width: 800px;
+    border-radius: 5px;
+    border: solid 3px lightslategray;
+    margin: 12em auto;
+    padding: 1em;
+}
+
+.game-modal-p {
+    text-align: center;
+    margin: 0;
+}
+
+/*////////////// WEATHER MODAL SECTION /////////////////*/
 
 .modal {
 	background-color: rgba(0, 0, 0, .4);

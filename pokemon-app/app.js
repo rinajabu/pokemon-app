@@ -179,6 +179,57 @@ $(() => {
 
     }) // pokemon submit button event listener closing
 
+    // pokemon mini modal battle game //
+
+    $('.game-modal').on('click', (event) => {
+        // console.log('game clicked!');
+
+        const $modalDiv = $('<div>')
+            .addClass('modal');
+
+        const $gameModalTextbox = $('<div>')
+            .addClass('game-modal-textbox');
+
+        const $gameModalH1 = $('<h1>')
+            .addClass('game-modal-h1')
+            .text("Mini Pokémon Battle Game");
+
+        const $gameModalP = $('<p>')
+            .addClass('game-modal-p')
+            .text(`Simulate a Pokémon battle with two randomly generated Pokémon!`);
+
+        const $gameModalCloseBtn = $('<button>')
+            .addClass('game-modal-close-btn')
+            .attr('id', 'close-btn')
+            .text('CLOSE');
+
+        $gameModalTextbox.append($gameModalH1);
+        $gameModalTextbox.append($gameModalP);
+        $gameModalTextbox.append($gameModalCloseBtn);
+        $modalDiv.append($gameModalTextbox);
+        $('.container').append($modalDiv);
+
+        $gameModalCloseBtn.on('click', () => {
+            $modalDiv.remove();
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }) //game modal event listener closing
+
+
     // weather click event //
     // Math.floor(data.main.temp) = current temp in F
     // data.name = city name (always set to Old Bridge, NJ)
