@@ -34,7 +34,7 @@ $(() => {
         }).then(
             (data) => {
                 // console.log(data.types[0].type.name);
-                // console.log(data.moves.length);
+                console.log(data);
 
                 // condition if user puts in valid input value
                 if ($grabPokemon === data.name || $grabPokemon == data.id) {
@@ -191,7 +191,7 @@ $(() => {
 
         $.ajax({
             // API weather request for US 08857 zip code and imperial units of measurement
-            url: `http://api.openweathermap.org/data/2.5/weather?zip=08857,us&units=imperial&appid=a7f687658a33baa04934ad5d4aecb3d1`,
+            url: `https://api.openweathermap.org/data/2.5/weather?zip=08857,us&units=imperial&appid=a7f687658a33baa04934ad5d4aecb3d1`,
             type: "GET",
         }).then(
             (data) => {
