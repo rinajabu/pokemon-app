@@ -184,7 +184,7 @@ img {
     margin-top: 1em;
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 38%;
 }
 
 .pokemon-1-div img, .pokemon-2-div img {
@@ -194,6 +194,7 @@ img {
 
 .pokemon-1-div p, .pokemon-2-div p {
     text-align: center;
+    margin: 0 0 .5em;
 }
 
 .battle-btn {

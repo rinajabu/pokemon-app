@@ -244,6 +244,7 @@ $(() => {
 
             // clearing the results field after each generate click
             $('.battle-img1').remove();
+            $('.battle-name1').remove();
             $('.battle-hp1').remove();
             $('.battle-attack1').remove();
 
@@ -258,15 +259,20 @@ $(() => {
 
                     // storing battle data in variables
                     // const $img = data.sprites.front_default;
-                    const $hpStat = data.stats[0].base_stat;
+                    const $hpStat = (data.stats[0].base_stat * 2);
                     const $attackStat = data.stats[1].base_stat;
-                    // console.log($img);
+                    console.log(data.name);
                     // console.log($hpStat);
                     // console.log($attackStat);
 
                     const $battleImg = $('<img>')
                         .attr({ 'src': data.sprites.front_default, 'alt': `Picture of ${data.name}`, 'class': 'battle-img1' });
                     $pokemon1.append($battleImg);
+
+                    const $battleName = $('<p>')
+                        .addClass('battle-name1')
+                        .text(`Name: ${data.name}`);
+                    $pokemon1.append($battleName);
 
                     const $battleHp = $('<p>')
                         .addClass('battle-hp1')
@@ -295,6 +301,7 @@ $(() => {
 
             // clearing the results field after each generate click
             $('.battle-img2').remove();
+            $('.battle-name2').remove();
             $('.battle-hp2').remove();
             $('.battle-attack2').remove();
 
@@ -309,7 +316,7 @@ $(() => {
 
                     // storing battle data in variables
                     // const $img = data.sprites.front_default;
-                    const $hpStat = data.stats[0].base_stat * 2;
+                    const $hpStat = (data.stats[0].base_stat * 2);
                     const $attackStat = data.stats[1].base_stat;
                     // console.log($img);
                     // console.log($hpStat);
@@ -318,6 +325,11 @@ $(() => {
                     const $battleImg = $('<img>')
                         .attr({ 'src': data.sprites.front_default, 'alt': `Picture of ${data.name}`, 'class': 'battle-img2' });
                     $pokemon2.append($battleImg);
+
+                    const $battleName = $('<p>')
+                        .addClass('battle-name2')
+                        .text(`Name: ${data.name}`);
+                    $pokemon2.append($battleName);
 
                     const $battleHp = $('<p>')
                         .addClass('battle-hp2')
