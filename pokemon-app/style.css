@@ -194,6 +194,10 @@ img {
     justify-content: space-between;
 }
 
+.guess-img {
+    width: 200px
+}
+
 .quiz-input-div {
     width: 50%;
     display: flex;

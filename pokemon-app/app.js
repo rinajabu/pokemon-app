@@ -192,7 +192,7 @@ $(() => {
 
         const $quizGenerateBtn = $('<input>')
             .addClass('quiz-generate-btn')
-            .attr({ 'type': 'submit', 'value': 'start quiz!' });
+            .attr({ 'type': 'submit', 'value': 'generate' });
 
         const $quizItemsDiv = $('<div>')
             .addClass('quiz-items-div');
@@ -236,19 +236,66 @@ $(() => {
 
             event.preventDefault();
 
-            let $randomPokemon = Math.ceil(Math.random() * 898);
+            // clears guess img and guess result fields each click
+            $('.guess-img').remove();
+            $('.wrong-guess-p').remove();
+            $('.correct-guess-p').remove();
+
+            let $randomPokemon = Math.ceil(Math.random() * 500);
 
             $.ajax({
                 url: `https://pokeapi.co/api/v2/pokemon/${$randomPokemon}`,
                 type: "GET",
             }).then(
                 (data) => {
-                    console.log(data);
+                    // console.log(data.sprites.back_shiny);
+
+                    const $guessImg = $('<img>')
+                        .addClass('guess-img')
+                        .attr({ 'src': data.sprites.back_shiny, 'alt': `Back picture of ${data.name}`, 'name': data.name });
+
+                    $quizImgDiv.append($guessImg);
+
                 },
                 () => {
                     console.log('bad quiz request');
                 }
             )
+
+        }) // quiz generate btn event closing
+
+        // quiz guess submit btn event listener
+        $quizGuessSubmitBtn.on('click', (event) => {
+
+            event.preventDefault();
+
+            // clears guess results field
+            $('.wrong-guess-p').remove();
+            $('.correct-guess-p').remove();
+
+            // grabbing the values of the guess input and the correct pokemon name from the guess img element
+            const $quizInputGuess = $('.quiz-input-box').val().toLowerCase();
+            const $correctPokemonName = $('.guess-img').attr('name');
+
+            if ($quizInputGuess === $correctPokemonName) {
+
+                const $correctGuessP = $('<p>')
+                    .addClass('correct-guess-p')
+                    .text(`You got it right! It was ${$correctPokemonName}! Click 'generate' to play it again!`);
+
+                $('.quiz-input-div').append($correctGuessP);
+
+            } else {
+
+                const $wrongGuessP = $('<p>')
+                    .addClass('wrong-guess-p')
+                    .text(`You guessed wrong! It was ${$correctPokemonName}! Click 'generate' to try again!`);
+
+                $('.quiz-input-div').append($wrongGuessP);
+
+            }
+
+
 
         })
 
