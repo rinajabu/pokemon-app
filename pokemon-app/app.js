@@ -180,7 +180,7 @@ $(() => {
     }) // pokemon submit button event listener closing
 
 
-    // pokemon mini modal battle game //
+    ////////////// pokemon mini modal battle game /////////////
     $('.game-modal').on('click', (event) => {
         // console.log('game clicked!');
 
@@ -321,12 +321,8 @@ $(() => {
                 (data) => {
 
                     // storing battle data in variables
-                    // const $img = data.sprites.front_default;
                     const $hpStat = (data.stats[0].base_stat * 2);
                     const $attackStat = data.stats[1].base_stat;
-                    // console.log($img);
-                    // console.log($hpStat);
-                    // console.log($attackStat);
 
                     const $battleImg = $('<img>')
                         .attr({ 'src': data.sprites.front_default, 'alt': `Picture of ${data.name}`, 'class': 'battle-img2' });
@@ -444,24 +440,10 @@ $(() => {
         })
 
 
-
         // close button event listener
         $gameModalCloseBtn.on('click', () => {
             $modalDiv.remove();
         })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }) //game modal event listener closing
@@ -476,6 +458,32 @@ $(() => {
     $('.weather-modal').on('click', (event) => {
 
         event.preventDefault();
+
+        // creating modal div, modal textbox, and close button
+        const $modalDiv = $('<div>')
+            .addClass('modal');
+
+        const $modalTextbox = $('<div>')
+            .addClass('modal-textbox');
+
+        const $modalH1 = $('<h1>')
+            .addClass('modal-h1')
+            .text("It's important to know what mother nature has in store for your adventure too! So here is the weather forecast for your Pokémon adventure!");
+
+        const $modalP = $('<p>')
+            .addClass('modal-p')
+            .text(`The current temperature is '{currentTemp}' degrees with '{weatherDescription}'. The high today will be '{highTemp}' and the low '{lowTemp}'. Wind speed is currently '{windSpeed}'mph. Adventure on trainer!`);
+
+        const $modalCloseBtn = $('<button>')
+            .addClass('modal-close-btn')
+            .attr('id', 'close-btn')
+            .text('CLOSE');
+
+        $modalTextbox.append($modalH1);
+        $modalTextbox.append($modalP);
+        $modalTextbox.append($modalCloseBtn);
+        $modalDiv.append($modalTextbox);
+        $('.container').append($modalDiv);
 
         $.ajax({
             // API weather request for US 08857 zip code and imperial units of measurement
@@ -492,36 +500,9 @@ $(() => {
                 const lowTemp = Math.round(data.main.temp_min);
                 const windSpeed = Math.round(data.wind.speed);
 
-                // creating modal div, modal textbox, and close button
-                const $modalDiv = $('<div>')
-                    .addClass('modal');
 
-                const $modalTextbox = $('<div>')
-                    .addClass('modal-textbox');
 
-                const $modalH1 = $('<h1>')
-                    .addClass('modal-h1')
-                    .text("It's important to know what mother nature has in store for your adventure too! So here is the weather forecast for your Pokémon adventure!");
 
-                const $modalP = $('<p>')
-                    .addClass('modal-p')
-                    .text(`The current temperature is ${currentTemp} degrees with ${weatherDescription}. The high today will be ${highTemp} and the low ${lowTemp}. Wind speed is currently ${windSpeed}mph. Adventure on trainer!`);
-
-                const $modalCloseBtn = $('<button>')
-                    .addClass('modal-close-btn')
-                    .attr('id', 'close-btn')
-                    .text('CLOSE');
-
-                $modalTextbox.append($modalH1);
-                $modalTextbox.append($modalP);
-                $modalTextbox.append($modalCloseBtn);
-                $modalDiv.append($modalTextbox);
-                $('.container').append($modalDiv);
-
-                // close button event listener to remove it when clicked
-                $modalCloseBtn.on('click', () => {
-                    $modalDiv.remove();
-                })
 
             },
             () => {
@@ -529,7 +510,10 @@ $(() => {
             }
         )
 
-
+        // close button event listener to remove it when clicked
+        $modalCloseBtn.on('click', () => {
+            $modalDiv.remove();
+        })
 
 
 
