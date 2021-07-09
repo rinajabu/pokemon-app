@@ -474,9 +474,16 @@ $(() => {
             .addClass('modal-p')
             .text(`It's important to know what mother nature has in store for your adventure too! Put your zip code to see the weather in your area!`);
 
-        // const $modalP = $('<p>')
-        //     .addClass('modal-p')
-        //     .text(`The current temperature is '{currentTemp}' degrees with '{weatherDescription}'. The high today will be '{highTemp}' and the low '{lowTemp}'. Wind speed is currently '{windSpeed}'mph. Adventure on trainer!`);
+        const $weatherForm = $('<form>')
+            .addClass('weather-form');
+
+        const $weatherZipInput = $('<input>')
+            .addClass('zip-input')
+            .attr({ 'type': 'text', 'placeholder': '5 digit zip code' });
+
+        const $weatherSubmit = $('<input>')
+            .addClass('weather-btn')
+            .attr({ 'type': 'submit', 'value': 'get weather!' });
 
         const $modalCloseBtn = $('<button>')
             .addClass('modal-close-btn')
@@ -485,42 +492,59 @@ $(() => {
 
         $modalTextbox.append($modalH1);
         $modalTextbox.append($modalP);
+        $modalTextbox.append($weatherForm);
+        $weatherForm.append($weatherZipInput);
+        $weatherForm.append($weatherSubmit);
         $modalTextbox.append($modalCloseBtn);
         $modalDiv.append($modalTextbox);
         $('.container').append($modalDiv);
 
-        $.ajax({
-            // API weather request for US 08857 zip code and imperial units of measurement
-            url: `https://api.openweathermap.org/data/2.5/weather?zip=08857,us&units=imperial&appid=a7f687658a33baa04934ad5d4aecb3d1`,
-            type: "GET",
-        }).then(
-            (data) => {
-                // console.log(data);
+        $weatherSubmit.on('click', (event) => {
 
-                // creating variable to store weather data
-                const currentTemp = Math.round(data.main.temp);
-                const weatherDescription = data.weather[0].description;
-                const highTemp = Math.round(data.main.temp_max);
-                const lowTemp = Math.round(data.main.temp_min);
-                const windSpeed = Math.round(data.wind.speed);
+            event.preventDefault();
+
+            // clearing the previous weather
+            $('.weather-modal-p').remove();
+
+            // storing the zip code input in a variable
+            const $zipInputVal = $('.zip-input').val();
+
+            $.ajax({
+                // API weather request for US 08857 zip code and imperial units of measurement
+                url: `https://api.openweathermap.org/data/2.5/weather?zip=${$zipInputVal},us&units=imperial&appid=a7f687658a33baa04934ad5d4aecb3d1`,
+                type: "GET",
+            }).then(
+                (data) => {
+
+                    // creating variable to store weather data
+                    const cityName = data.name;
+                    const currentTemp = Math.round(data.main.temp);
+                    const weatherDescription = data.weather[0].description;
+                    const highTemp = Math.round(data.main.temp_max);
+                    const lowTemp = Math.round(data.main.temp_min);
+                    const windSpeed = Math.round(data.wind.speed);
+
+                    const $weatherResultsP = $('<p>')
+                        .addClass('weather-modal-p')
+                        .text(`For the city of '${cityName}', the current temperature is '${currentTemp}' degrees with '${weatherDescription}'. The high today will be '${highTemp}' and the low '${lowTemp}'. Wind speed is currently '${windSpeed}'mph. Adventure on trainer!`);
+
+                    $weatherResultsP.insertAfter($weatherForm);
 
 
 
+                },
+                () => {
+                    console.log("bad request");
+                }
+            )
 
+        }) // submit button event listener closing
 
-            },
-            () => {
-                console.log("bad request");
-            }
-        )
 
         // close button event listener to remove it when clicked
         $modalCloseBtn.on('click', () => {
             $modalDiv.remove();
         })
-
-
-
 
 
 

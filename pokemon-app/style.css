@@ -242,7 +242,7 @@ img {
     flex-direction: column;
     justify-content: space-between;
     background-color: lightcoral;
-    height: 380px;
+    height: 55vh;
     width: 35em;
     border-radius: 5px;
     border: solid 3px lightslategray;
@@ -255,10 +255,30 @@ img {
     line-height: 1.5em;
 }
 
-.modal-p {
+.modal-p, .weather-modal-p {
     text-align: center;
     font-size: 1.1em;
     line-height: 1.5em;
+}
+
+.weather-form {
+    margin: 0 auto;
+}
+
+.zip-input {
+    height: 2em;
+    margin-right: 1em;
+    border: 3px solid lightslategray;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.weather-btn {
+    height: 2.5em;
+    margin-right: 1em;
+    border: 3px solid lightslategray;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .modal-close-btn {
@@ -386,7 +406,7 @@ img {
     }
 
     .modal-textbox {
-        height: 50vh;
+        height: 65vh;
         width: 75%;
     }
     
@@ -448,7 +468,7 @@ img {
     }
 
     .modal-textbox {
-        height: 55vh;
+        height: 65vh;
         width: 75%;
     }
     
@@ -513,7 +533,7 @@ img {
     }
 
     .modal-textbox {
-        height: 55vh;
+        height: 70vh;
         width: 75%;
     }
     
@@ -542,4 +562,17 @@ img {
         margin: 0 0 0 10em;
     }
     
+}
+
+@media (max-width: 365px) { 
+
+    .weather-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .zip-input {
+        margin-bottom: 7px;
+    }
+
 }
