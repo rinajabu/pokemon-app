@@ -192,7 +192,27 @@ $(() => {
 
         const $quizGenerateBtn = $('<input>')
             .addClass('quiz-generate-btn')
-            .attr({ 'type': 'submit', 'value': 'guess this Pokémon!' });
+            .attr({ 'type': 'submit', 'value': 'start quiz!' });
+
+        const $quizItemsDiv = $('<div>')
+            .addClass('quiz-items-div');
+
+        const $quizImgDiv = $('<div>')
+            .addClass('quiz-img-div');
+
+        const $quizInputDiv = $('<div>')
+            .addClass('quiz-input-div');
+
+        const $quizForm = $('<form>')
+            .addClass('quiz-form');
+
+        const $quizInputBox = $('<input>')
+            .addClass('quiz-input-box')
+            .attr({ 'type': 'text', 'placeholder': 'guess! name or ID#' });
+
+        const $quizGuessSubmitBtn = $('<input>')
+            .addClass('quiz-guess-submit-btn')
+            .attr({ 'type': 'submit' });
 
         const $quizModalCloseBtn = $('<button>')
             .addClass('quiz-modal-close-btn')
@@ -201,10 +221,36 @@ $(() => {
 
         $quizModalTextbox.append($quizModalH1);
         $quizModalTextbox.append($quizModalP);
-        $quizModalTextbox.append($quizGenerateBtn);
+        $quizImgDiv.append($quizGenerateBtn);
+        $quizModalTextbox.append($quizItemsDiv);
+        $quizItemsDiv.append($quizImgDiv);
+        $quizItemsDiv.append($quizInputDiv);
+        $quizInputDiv.append($quizForm);
+        $quizForm.append($quizInputBox);
+        $quizForm.append($quizGuessSubmitBtn);
         $quizModalTextbox.append($quizModalCloseBtn);
         $modalDiv.append($quizModalTextbox);
         $('.container').append($modalDiv);
+
+        $quizGenerateBtn.on('click', (event) => {
+
+            event.preventDefault();
+
+            let $randomPokemon = Math.ceil(Math.random() * 898);
+
+            $.ajax({
+                url: `https://pokeapi.co/api/v2/pokemon/${$randomPokemon}`,
+                type: "GET",
+            }).then(
+                (data) => {
+                    console.log(data);
+                },
+                () => {
+                    console.log('bad quiz request');
+                }
+            )
+
+        })
 
         // exit button event
         $quizModalCloseBtn.on('click', () => {

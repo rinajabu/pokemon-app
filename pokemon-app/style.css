@@ -148,10 +148,10 @@ img {
 .quiz-modal-textbox {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: floralwhite;
-    height: 540px;
-    width: 775px;
+    height: 520px;
+    width: 675px;
     border-radius: 5px;
     border: solid 3px lightslategray;
     margin: 12em auto;
@@ -170,6 +170,48 @@ img {
 .quiz-generate-btn {
     cursor: pointer;
     height: 2em;
+    border: solid 3px lightslategrey;
+    border-radius: 5px;
+    margin: 1em auto;
+}
+
+.quiz-items-div {
+    background: antiquewhite;
+    border: solid 1px lightslategray;
+    border-radius: 5px;
+    width: 650px;
+    height: 330px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.quiz-img-div {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quiz-input-div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz-input-box {
+    height: 1.9em;
+    margin-right: 1em;
+    border: 3px solid lightslategray;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.quiz-guess-submit-btn {
+    cursor: pointer;
+    height: 2.5em;
     border: solid 3px lightslategrey;
     border-radius: 5px;
     margin: 1em auto;
