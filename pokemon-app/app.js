@@ -21,7 +21,7 @@ $(() => {
         $('.name-imgs').children().remove();
         $('.stat-numbers').children().remove();
 
-        // grabbing value from input box, putting value to lowercase for edge case purposes
+        // grabbing value from input box, putting value to lowercase
         let $grabPokemon = $('.input-value').val().toLowerCase();
 
         // to hide styling for stats section on each click
@@ -33,8 +33,6 @@ $(() => {
             type: "GET",
         }).then(
             (data) => {
-                // console.log(data.types[0].type.name);
-                console.log(data);
 
                 // condition if user puts in valid input value
                 if ($grabPokemon === data.name || $grabPokemon == data.id) {
@@ -116,7 +114,6 @@ $(() => {
                     // stat name and number // 
                     // looping through to get each stat name and number
                     for (let i = 0; i < data.stats.length; i++) {
-                        // console.log(data.stats[i].stat.name, data.stats[i].base_stat);
                         const $statDivs = $('<div>')
                             .text(`${data.stats[i].stat.name}: ${data.stats[i].base_stat}`);
                         $('.stat-numbers').append($statDivs);
@@ -136,7 +133,6 @@ $(() => {
                     })
 
                     for (let i = 0; i < data.moves.length; i++) {
-                        // console.log(data.moves[i].move.name);
                         const $movesListLi = $('<li>')
                             .text(`${data.moves[i].move.name}`);
                         $movesUl.append($movesListLi);
@@ -151,7 +147,6 @@ $(() => {
                     $typeDiv.append($typeUl);
 
                     for (let i = 0; i < data.types.length; i++) {
-                        // console.log(data.types[i].type.name);
                         const $typeLi = $('<li>')
                             .text(data.types[i].type.name);
                         $typeUl.append($typeLi);
@@ -164,7 +159,6 @@ $(() => {
                     $('.stat-numbers').children().remove();
                     $('.stats').addClass('hide');
                     alert('Pokémon not found. Please check input and try again!');
-                    console.log('clicked');
                 }
 
             }, // end of first promise parameter
@@ -179,14 +173,49 @@ $(() => {
 
     }) // pokemon submit button event listener closing
 
+    //////////////////////// quiz modal event //////////////////////////
     $('.quiz-modal').on('click', (event) => {
-        console.log('quiz click!');
+
+        const $modalDiv = $('<div>')
+            .addClass('modal');
+
+        const $quizModalTextbox = $('<div>')
+            .addClass('quiz-modal-textbox');
+
+        const $quizModalH1 = $('<h1>')
+            .addClass('quiz-modal-h1')
+            .text("Pokémon Quiz");
+
+        const $quizModalP = $('<p>')
+            .addClass('quiz-modal-p')
+            .text(`Guess the randomly generated Pokémon from it's shiny back view!`);
+
+        const $quizGenerateBtn = $('<input>')
+            .addClass('quiz-generate-btn')
+            .attr({ 'type': 'submit', 'value': 'guess this Pokémon!' });
+
+        const $quizModalCloseBtn = $('<button>')
+            .addClass('quiz-modal-close-btn')
+            .attr('id', 'close-btn')
+            .text('EXIT');
+
+        $quizModalTextbox.append($quizModalH1);
+        $quizModalTextbox.append($quizModalP);
+        $quizModalTextbox.append($quizGenerateBtn);
+        $quizModalTextbox.append($quizModalCloseBtn);
+        $modalDiv.append($quizModalTextbox);
+        $('.container').append($modalDiv);
+
+        // exit button event
+        $quizModalCloseBtn.on('click', () => {
+            $modalDiv.remove();
+        })
+
     })
 
 
-    ////////////// pokemon mini modal battle game ////////////////////////
+    ////////////// pokemon mini modal battle story ////////////////////////
     $('.game-modal').on('click', (event) => {
-        // console.log('game clicked!');
 
         // making the elements for modal game
         const $modalDiv = $('<div>')

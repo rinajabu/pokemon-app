@@ -143,6 +143,47 @@ img {
     display: block;
 }
 
+/*//////////////// QUIZ MODAL SECTION ///////////////////*/
+
+.quiz-modal-textbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: floralwhite;
+    height: 540px;
+    width: 775px;
+    border-radius: 5px;
+    border: solid 3px lightslategray;
+    margin: 12em auto;
+    padding: 1em;
+}
+
+.quiz-modal-h1 {
+    margin: 0;
+}
+
+.quiz-modal-p {
+    text-align: center;
+    margin: 0;
+}
+
+.quiz-generate-btn {
+    cursor: pointer;
+    height: 2em;
+    border: solid 3px lightslategrey;
+    border-radius: 5px;
+    margin: 1em auto;
+}
+
+.quiz-modal-close-btn {
+    cursor: pointer;
+    height: 2em;
+    border: solid 3px lightslategrey;
+    border-radius: 5px;
+    margin: 1em auto;
+}
+
+
 /*/////////////// GAME MODAL SECTION //////////////////*/
 
 .game-modal-textbox {
