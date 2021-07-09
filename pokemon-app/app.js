@@ -449,11 +449,6 @@ $(() => {
     }) //game modal event listener closing
 
 
-    // weather click event //
-    // Math.floor(data.main.temp) = current temp in F
-    // data.name = city name (always set to Old Bridge, NJ)
-    // data.weather[0].description = weather description; clear skies, raining, etc.
-
     // weather modal event listener
     $('.weather-modal').on('click', (event) => {
 
@@ -499,6 +494,7 @@ $(() => {
         $modalDiv.append($modalTextbox);
         $('.container').append($modalDiv);
 
+        // click event to grab weather for certain zip code
         $weatherSubmit.on('click', (event) => {
 
             event.preventDefault();
@@ -528,13 +524,11 @@ $(() => {
                         .addClass('weather-modal-p')
                         .text(`For the city of '${cityName}', the current temperature is '${currentTemp}' degrees with '${weatherDescription}'. The high today will be '${highTemp}' and the low '${lowTemp}'. Wind speed is currently '${windSpeed}'mph. Adventure on trainer!`);
 
-                    $weatherResultsP.insertAfter($weatherForm);
-
-
+                    $weatherResultsP.insertAfter($modalP);
 
                 },
                 () => {
-                    console.log("bad request");
+                    alert("Please entera valid 5 digit zip code (ex. 12345)");
                 }
             )
 
