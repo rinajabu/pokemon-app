@@ -179,8 +179,12 @@ $(() => {
 
     }) // pokemon submit button event listener closing
 
+    $('.quiz-modal').on('click', (event) => {
+        console.log('quiz click!');
+    })
 
-    ////////////// pokemon mini modal battle game /////////////
+
+    ////////////// pokemon mini modal battle game ////////////////////////
     $('.game-modal').on('click', (event) => {
         // console.log('game clicked!');
 
@@ -242,9 +246,6 @@ $(() => {
 
             event.preventDefault();
 
-            // can only generate once per session
-            $(this).off(event);
-
             // clearing the results field after each generate click
             $('.battle-img1').remove();
             $('.battle-name1').remove();
@@ -270,7 +271,7 @@ $(() => {
 
                     const $battleName = $('<p>')
                         .addClass('battle-name1')
-                        .text(`Name: ${data.name}`);
+                        .text(`${data.name}`);
                     $pokemon1.append($battleName);
 
                     // storing hp num in attribute to grab for battle
@@ -298,12 +299,8 @@ $(() => {
 
         // generate the 2nd random pokemon
         $pokemon2Btn.on('click', (event) => {
-            // console.log('clicked btn 2!');
 
             event.preventDefault();
-
-            // can only generate once per session
-            $(this).off(event);
 
             // clearing the results field after each generate click
             $('.battle-img2').remove();
@@ -330,7 +327,7 @@ $(() => {
 
                     const $battleName = $('<p>')
                         .addClass('battle-name2')
-                        .text(`Name: ${data.name}`);
+                        .text(`${data.name}`);
                     $pokemon2.append($battleName);
 
                     // storing hp num in attribute to grab for battle
@@ -359,8 +356,10 @@ $(() => {
         $('.battle-btn').on('click', (event) => {
 
             // grabbing hp and attack attribute numbers from each opponent and storing them in variables
+            const $pokemon1name = $('.battle-name1').text();
             let $pokemon1Hp = $('.battle-hp1').attr('hp1');
             let $pokemon1Attack = $('.battle-attack1').attr('attack1');
+            const $pokemon2name = $('.battle-name2').text();
             let $pokemon2Hp = $('.battle-hp2').attr('hp2');
             let $pokemon2Attack = $('.battle-attack2').attr('attack2');
 
@@ -369,13 +368,13 @@ $(() => {
                 if ($pokemon1Hp <= 0 || $pokemon2Hp <= 0) {
                     if ($pokemon2Hp <= 0) {
                         $pokemon2Hp = 0;
-                        alert(`1st pokemon health: ${$pokemon1Hp}\n2nd pokemon health: ${$pokemon2Hp}`);
+                        alert(`${$pokemon1name}'s health: ${$pokemon1Hp}\n${$pokemon2name}'s health: ${$pokemon2Hp}`);
                     } else if ($pokemon1Hp <= 0) {
                         $pokemon1Hp = 0;
-                        alert(`1st pokemon health: ${$pokemon1Hp}\n2nd pokemon health: ${$pokemon2Hp}`);
+                        alert(`${$pokemon1name}'s health: ${$pokemon1Hp}\n${$pokemon2name}'s health: ${$pokemon2Hp}`);
                     }
                 } else {
-                    alert(`1st pokemon health: ${$pokemon1Hp}\n2nd pokemon health: ${$pokemon2Hp}`);
+                    alert(`${$pokemon1name}'s health: ${$pokemon1Hp}\n${$pokemon2name}'s health: ${$pokemon2Hp}`);
                 }
             }
 
@@ -385,10 +384,10 @@ $(() => {
                     alert(`It's a tie! Both Pokémon fell in battle! Click Pokémon Battle Story to play again! Thanks for playing!`)
                     location.reload();
                 } else if ($pokemon2Hp <= 0) {
-                    alert('1st Pokémon has won! Click Pokémon Battle Story to play again! Thanks for playing!');
+                    alert(`${$pokemon1name} has won! Click Pokémon Battle Story to play again! Thanks for playing!`);
                     location.reload();
                 } else if ($pokemon1Hp <= 0) {
-                    alert('2nd Pokémon has won! Click Pokémon Battle Story to play again! Thanks for playing!');
+                    alert(`${$pokemon2name} has won! Click Pokémon Battle Story to play again! Thanks for playing!`);
                     location.reload();
                 } else {
                     battle2();
@@ -400,10 +399,10 @@ $(() => {
                     alert(`It's a tie! Both Pokémon fell in battle! Click Mini Pokemon Game to play again! Thanks for playing!`)
                     location.reload();
                 } else if ($pokemon2Hp <= 0) {
-                    alert('1st Pokémon has won! Click Mini Pokemon Game to play again! Thanks for playing!');
+                    alert(`${$pokemon1name} has won! Click Mini Pokemon Game to play again! Thanks for playing!`);
                     location.reload();
                 } else if ($pokemon1Hp <= 0) {
-                    alert('2nd Pokémon has won! Click Mini Pokemon Game to play again! Thanks for playing!');
+                    alert(`${$pokemon2name} has won! Click Mini Pokemon Game to play again! Thanks for playing!`);
                     location.reload();
                 } else {
                     battle1();
@@ -414,7 +413,7 @@ $(() => {
             const battle1 = () => {
                 // pokemon1 always hits first
                 $pokemon2Hp -= $pokemon1Attack;
-                alert(`1st Pokémon hits 2nd Pokémon for ${$pokemon1Attack} damage!`);
+                alert(`${$pokemon1name} hits ${$pokemon2name} for ${$pokemon1Attack} damage!`);
                 status();
                 checkWin1();
             }
@@ -423,7 +422,7 @@ $(() => {
             const battle2 = () => {
                 // pokemon2 attack
                 $pokemon1Hp -= $pokemon2Attack;
-                alert(`2nd Pokémon hits 1st Pokémon for ${$pokemon2Attack} damage!`);
+                alert(`${$pokemon2name} hits ${$pokemon1name} for ${$pokemon2Attack} damage!`);
                 status();
                 checkWin2();
             }
@@ -449,7 +448,7 @@ $(() => {
     }) //game modal event listener closing
 
 
-    // weather modal event listener
+    ////////////////// pokemon weather modal event /////////////////////
     $('.weather-modal').on('click', (event) => {
 
         event.preventDefault();
@@ -522,13 +521,13 @@ $(() => {
 
                     const $weatherResultsP = $('<p>')
                         .addClass('weather-modal-p')
-                        .text(`For the city of '${cityName}', the current temperature is '${currentTemp}' degrees with '${weatherDescription}'. The high today will be '${highTemp}' and the low '${lowTemp}'. Wind speed is currently '${windSpeed}'mph. Adventure on trainer!`);
+                        .text(`For the city of ${cityName}, the current temperature is ${currentTemp} \u00B0F with ${weatherDescription}. The high today will be ${highTemp} \u00B0F and the low ${lowTemp} \u00B0F. Wind speed is currently ${windSpeed}mph. Adventure on trainer!`);
 
                     $weatherResultsP.insertAfter($modalP);
 
                 },
                 () => {
-                    alert("Please entera valid 5 digit zip code (ex. 12345)");
+                    alert("Please enter a valid 5 digit zip code (ex. 12345)");
                 }
             )
 
