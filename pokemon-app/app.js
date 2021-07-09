@@ -468,11 +468,15 @@ $(() => {
 
         const $modalH1 = $('<h1>')
             .addClass('modal-h1')
-            .text("It's important to know what mother nature has in store for your adventure too! So here is the weather forecast for your Pokémon adventure!");
+            .text("Your Local Pokemon Weather");
 
         const $modalP = $('<p>')
             .addClass('modal-p')
-            .text(`The current temperature is '{currentTemp}' degrees with '{weatherDescription}'. The high today will be '{highTemp}' and the low '{lowTemp}'. Wind speed is currently '{windSpeed}'mph. Adventure on trainer!`);
+            .text(`It's important to know what mother nature has in store for your adventure too! Put your zip code to see the weather in your area!`);
+
+        // const $modalP = $('<p>')
+        //     .addClass('modal-p')
+        //     .text(`The current temperature is '{currentTemp}' degrees with '{weatherDescription}'. The high today will be '{highTemp}' and the low '{lowTemp}'. Wind speed is currently '{windSpeed}'mph. Adventure on trainer!`);
 
         const $modalCloseBtn = $('<button>')
             .addClass('modal-close-btn')

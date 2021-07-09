@@ -242,8 +242,8 @@ img {
     flex-direction: column;
     justify-content: space-between;
     background-color: lightcoral;
-    height: 350px;
-    width: 30em;
+    height: 380px;
+    width: 35em;
     border-radius: 5px;
     border: solid 3px lightslategray;
     margin: 12em auto;
@@ -265,7 +265,7 @@ img {
     cursor: pointer;
     width: 20%;
     height: 2.5em;
-    margin: 0 0 1em 14em;
+    margin: 0 0 1em 17em;
     border: solid 3px lightslategrey;
     border-radius: 5px;
 }
@@ -336,11 +336,11 @@ img {
     }
 
     .modal-textbox {
-        width: 25em;
+        width: 28em;
     }
     
     .modal-close-btn {
-        margin: 0 0 1em 12em;
+        margin: 0 0 1em 14em;
     }
 
     .game-modal-textbox {
