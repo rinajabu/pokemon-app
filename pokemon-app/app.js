@@ -248,7 +248,6 @@ $(() => {
                 type: "GET",
             }).then(
                 (data) => {
-                    // console.log(data.sprites.back_shiny);
 
                     const $guessImg = $('<img>')
                         .addClass('guess-img')
@@ -289,7 +288,7 @@ $(() => {
 
                 const $wrongGuessP = $('<p>')
                     .addClass('wrong-guess-p')
-                    .text(`You guessed wrong! It was ${$correctPokemonName}! Click 'generate' to try again!`);
+                    .text(`You guessed wrong! Try to guess again or click 'generate' to try again!`);
 
                 $('.quiz-input-div').append($wrongGuessP);
 
