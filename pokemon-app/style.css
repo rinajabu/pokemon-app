@@ -428,6 +428,35 @@ img {
         width: 4em;
         margin: 0 0 0 18.5em;
     }
+
+    .quiz-modal-textbox {
+        height: 550px;
+        width: 490px;
+    }
+
+    .quiz-items-div {
+        width: 430px;
+        height: 350px;
+    }
+
+    .quiz-input-box {
+        margin: 1em 0 0;
+        width: 10em;
+    }
+
+    .quiz-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .guess-img {
+        width: 170px;
+    }
+
+    .wrong-guess-p {
+        margin: 0;
+        text-align: center;
+    }
     
 }
 
@@ -468,6 +497,35 @@ img {
     .game-modal-close-btn {
         width: 4em;
         margin: 0 0 0 15em;
+    }
+
+    .quiz-modal-textbox {
+        height: 550px;
+        width: 440px;
+    }
+
+    .quiz-items-div {
+        width: 430px;
+        height: 350px;
+    }
+
+    .quiz-input-box {
+        margin: 1em 0 0;
+        width: 10em;
+    }
+
+    .quiz-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .guess-img {
+        width: 170px;
+    }
+
+    .wrong-guess-p {
+        margin: 0;
+        text-align: center;
     }
     
 }
@@ -520,6 +578,35 @@ img {
     .game-modal-close-btn {
         width: 4em;
         margin: 0 0 0 12em;
+    }
+
+    .quiz-modal-textbox {
+        height: 550px;
+        width: 370px;
+    }
+
+    .quiz-items-div {
+        width: 360px;
+        height: 350px;
+    }
+
+    .quiz-input-box {
+        margin: 1em 0 0;
+        width: 10em;
+    }
+
+    .quiz-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .guess-img {
+        width: 170px;
+    }
+
+    .wrong-guess-p {
+        margin: 0;
+        text-align: center;
     }
     
 }
@@ -582,6 +669,36 @@ img {
     .game-modal-close-btn {
         width: 4em;
         margin: 0 0 0 10em;
+    }
+
+
+    .quiz-modal-textbox {
+        height: 550px;
+        width: 330px;
+    }
+
+    .quiz-items-div {
+        width: 310px;
+        height: 350px;
+    }
+
+    .quiz-input-box {
+        margin: 1em 0 0;
+        width: 10em;
+    }
+
+    .quiz-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .guess-img {
+        width: 170px;
+    }
+
+    .wrong-guess-p {
+        margin: 0;
+        text-align: center;
     }
 
 }
@@ -647,6 +764,35 @@ img {
     .game-modal-close-btn {
         width: 4em;
         margin: 0 0 0 10em;
+    }
+
+    .quiz-modal-textbox {
+        height: 550px;
+        width: 300px;
+    }
+
+    .quiz-items-div {
+        width: 280px;
+        height: 350px;
+    }
+
+    .quiz-input-box {
+        margin: 1em 0 0;
+        width: 10em;
+    }
+
+    .quiz-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .guess-img {
+        width: 170px;
+    }
+
+    .wrong-guess-p {
+        margin: 0;
+        text-align: center;
     }
     
 }
