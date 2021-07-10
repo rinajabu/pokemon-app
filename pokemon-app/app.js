@@ -1,5 +1,33 @@
 $(() => {
 
+    // sticky nav functionality
+    const $navbar = $('#navbar');
+    const $sticky = $navbar.offset().top;
+    // console.log($sticky); = 24
+    // console.log($(window).scrollTop()); = 0
+
+    // window on scroll listener to make nav sticky
+    $(window).on('scroll', () => {
+        if ($(window).scrollTop() >= $sticky) {
+            $navbar.addClass("sticky");
+        } else {
+            $navbar.removeClass("sticky");
+        }
+    })
+
+    // window.onscroll = function () { myFunction() };
+
+    // var navbar = document.getElementById("navbar");
+    // var sticky = navbar.offsetTop;
+
+    // function myFunction() {
+    //     if (window.pageYOffset >= sticky) {
+    //         navbar.classList.add("sticky")
+    //     } else {
+    //         navbar.classList.remove("sticky");
+    //     }
+    // }
+
     // .name and .id (name and ID)
     // .height and .weight (height and weight)
     // .sprites.back_default/back_shiny/front_default/front_shiny (IMG carousel 4 items)
