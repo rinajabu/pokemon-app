@@ -354,18 +354,30 @@ img {
 }
 
 .modal-h1 {
-    font-size: 1.3em;
-    line-height: 1.5em;
+    margin: 0;
 }
 
 .modal-p, .weather-modal-p {
     text-align: center;
-    font-size: 1.1em;
     line-height: 1.5em;
+    padding: 0 1em;
+}
+
+.weather-results-div {
+    background: antiquewhite;
+    border: solid 1px lightslategray;
+    border-radius: 5px;
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .weather-form {
-    margin: 0 auto;
+    margin: 1em auto 0;
 }
 
 .zip-input {
@@ -488,7 +500,13 @@ img {
     }
 
     .modal-textbox {
-        width: 28em;
+        height: 65vh;
+        width: 80%;
+    }
+
+    .weather-results-div {
+        width: 100%;
+        height: 26vh;
     }
     
     .modal-close-btn {
@@ -567,8 +585,13 @@ img {
     }
 
     .modal-textbox {
-        height: 65vh;
+        height: 71vh;
         width: 75%;
+    }
+
+    .weather-results-div {
+        width: 100%;
+        height: 28vh;
     }
     
     .modal-close-btn {
@@ -658,8 +681,13 @@ img {
     }
 
     .modal-textbox {
-        height: 65vh;
+        height: 73vh;
         width: 75%;
+    }
+
+    .weather-results-div {
+        width: 100%;
+        height: 30vh;
     }
     
     .modal-close-btn {
@@ -686,7 +714,6 @@ img {
         width: 4em;
         margin: 0 0 0 10em;
     }
-
 
     .quiz-modal-textbox {
         height: 550px;
@@ -753,8 +780,13 @@ img {
     }
 
     .modal-textbox {
-        height: 70vh;
+        height: 75vh;
         width: 75%;
+    }
+
+    .weather-results-div {
+        width: 100%;
+        height: 32vh;
     }
     
     .modal-close-btn {
@@ -814,6 +846,16 @@ img {
 }
 
 @media (max-width: 365px) { 
+
+    .modal-textbox {
+        height: 80vh;
+        width: 75%;
+    }
+
+    .weather-results-div {
+        width: 100%;
+        height: 37vh;
+    }
 
     .weather-form {
         display: flex;

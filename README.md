@@ -38,4 +38,6 @@ For my quiz, in the future I would like the make it multiple choice instead of t
 
 For the battle story, I would like to actually make it a game where the user can choose a Pokémon and that Pokémon would have a choice of moves that the user can pick to attack a randomly generated Pokémon.
 
-I wanted to focus on making my features work and make my app responsive first before making any improvements to the features. I'm hoping to be able to refine these things in the future with more time.
+Codewise, I would like to integrate different looping methods like the "for of" or "for each" instead of just using the basic "for" loop. I would probably also want to instead of using anonymous functions for my event listeners and ajax calls, declare functions separately and then insert them into both to increase my code readability.
+
+I'm hoping to be able to contiue working on this project to make these improvements and refine my code in the future.

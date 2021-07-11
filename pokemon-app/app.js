@@ -598,11 +598,14 @@ $(() => {
 
         const $modalH1 = $('<h1>')
             .addClass('modal-h1')
-            .text("Your Local Pokemon Weather");
+            .text("Your Pokemon Weather");
 
         const $modalP = $('<p>')
             .addClass('modal-p')
             .text(`It's important to know what mother nature has in store for your adventure too! Put your zip code to see the weather in your area!`);
+
+        const $weatherResultsDiv = $('<div>')
+            .addClass('weather-results-div');
 
         const $weatherForm = $('<form>')
             .addClass('weather-form');
@@ -622,7 +625,8 @@ $(() => {
 
         $modalTextbox.append($modalH1);
         $modalTextbox.append($modalP);
-        $modalTextbox.append($weatherForm);
+        $modalTextbox.append($weatherResultsDiv);
+        $weatherResultsDiv.append($weatherForm);
         $weatherForm.append($weatherZipInput);
         $weatherForm.append($weatherSubmit);
         $modalTextbox.append($modalCloseBtn);
@@ -659,7 +663,7 @@ $(() => {
                         .addClass('weather-modal-p')
                         .text(`For the city of ${cityName}, the current temperature is ${currentTemp} \u00B0F with ${weatherDescription}. The high today will be ${highTemp} \u00B0F and the low ${lowTemp} \u00B0F. Wind speed is currently ${windSpeed}mph. Adventure on trainer!`);
 
-                    $weatherResultsP.insertAfter($modalP);
+                    $weatherResultsP.insertAfter($weatherForm);
 
                 },
                 () => {
