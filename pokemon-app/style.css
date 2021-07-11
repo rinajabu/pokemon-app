@@ -19,6 +19,7 @@ nav {
     border: 3px solid lightslategray;
     border-radius: 5px;
     position: relative;
+    box-shadow: 4px 4px 7px black;
 }
 
 .sticky {
@@ -66,6 +67,7 @@ h1, h3 {
     border: 3px solid lightslategray;
     font-size: 1.5em;
     border-radius: 5px;
+    box-shadow: 4px 4px 7px black;
 }
 
 .btn {
@@ -76,6 +78,7 @@ h1, h3 {
     background: lightcoral;
     border: 3px solid lightslategray;
     border-radius: 5px;
+    box-shadow: 4px 4px 7px black;
 }
 
 .info {
@@ -101,6 +104,7 @@ img {
     background: lightcoral;
     border: solid 3px lightslategrey;
     border-radius: 5px;
+    box-shadow: 4px 4px 7px black;
 }
 
 .hide {
@@ -136,6 +140,7 @@ img {
     margin-top: 5em;
     border: solid 3px lightslategray;
     border-radius: 5px;
+    box-shadow: 4px 4px 7px black;
 }
 
 .carousel-container {
@@ -164,6 +169,7 @@ img {
     border: solid 3px lightslategray;
     margin: 12em auto;
     padding: 1em;
+    box-shadow: 4px 4px 7px black;
 }
 
 .quiz-modal-h1 {
@@ -251,6 +257,7 @@ img {
     border: solid 3px lightslategray;
     margin: 12em auto;
     padding: 1em;
+    box-shadow: 4px 4px 7px black;
 }
 
 .game-modal-h1 {
@@ -322,7 +329,7 @@ img {
 /*////////////// WEATHER MODAL SECTION /////////////////*/
 
 .modal {
-	background-color: rgba(0, 0, 0, .4);
+	background-color: rgba(0, 0, 0, .2);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -336,13 +343,14 @@ img {
 	display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: lightcoral;
+    background-color: floralwhite;
     height: 55vh;
     width: 35em;
     border-radius: 5px;
     border: solid 3px lightslategray;
     margin: 12em auto;
     padding: 1em;
+    box-shadow: 4px 4px 7px black;
 }
 
 .modal-h1 {
