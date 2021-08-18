@@ -2,7 +2,7 @@
 
 Live Site Link:
 
-https://distracted-goodall-b55e3c.netlify.app/
+[Pokémon App](https://distracted-goodall-b55e3c.netlify.app/)
 
 Technologies used:
 - HTML
